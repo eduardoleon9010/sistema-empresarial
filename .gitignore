@@ -1,0 +1,28 @@
+# Entorno virtual
+venv/
+.venv/
+
+# Caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de configuración local
+.env
+.env.*
+
+# Respaldos locales
+app_respaldo*.py
+
+# Archivos temporales
+*.tmp
+*.bak
+*.log
+
+# Configuración de editores
+.vscode/
+.idea/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db

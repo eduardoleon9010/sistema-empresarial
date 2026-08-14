@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Finanzas - Sistema Empresarial</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/estilos.css') }}"
+    >
+
+</head>
+
+<body>
+
+<header class="encabezado">
+
+    <div class="contenedor encabezado-contenido">
+
+        <div>
+
+            <h1>Sistema Empresarial</h1>
+
+            <p>
+                Gestión financiera
+            </p>
+
+        </div>
+
+        <div class="estado-sistema">
+
+            <span class="indicador-activo"></span>
+
+            Sistema activo
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="contenedor">
+
+
+    <!-- ==================================================
+         NAVEGACIÓN PRINCIPAL
+         ================================================== -->
+
+    <nav class="navegacion">
+
+        <a href="{{ url_for('inicio') }}">
+            Inicio
+        </a>
+
+        <span>|</span>
+
+        <a href="{{ url_for('finanzas') }}">
+            Finanzas
+        </a>
+
+        <span>|</span>
+
+        <a href="{{ url_for('contabilidad') }}">
+            Contabilidad
+        </a>
+
+        <span>|</span>
+
+        <a href="{{ url_for('nomina') }}">
+            Nómina
+        </a>
+
+        <span>|</span>
+
+        <a href="{{ url_for('tesoreria') }}">
+            Tesorería
+        </a>
+
+    </nav>
+
+
+    <!-- ==================================================
+         MENSAJES
+         ================================================== -->
+
+    {% if mensaje %}
+
+        <div
+            class="
+                mensaje
+                {% if tipo_mensaje == 'exito' %}
+                    mensaje-exito
+                {% else %}
+                    mensaje-error
+                {% endif %}
+            "
+        >
+
+            {{ mensaje }}
+
+        </div>
+
+    {% endif %}
+
+
+    <!-- ==================================================
+         CABECERA DEL MÓDULO
+         ================================================== -->
+
+    <section class="dashboard-cabecera">
+
+        <h2>
+            Módulo de Finanzas
+        </h2>
+
+        <p>
+            Consulta y gestión de la información financiera
+            del sistema empresarial.
+        </p>
+
+    </section>
+
+
+    <!-- ==================================================
+         INDICADORES FINANCIEROS
+         ================================================== -->
+
+    <section class="dashboard-grid">
+
+
+        <article class="indicador tarjeta-finanzas">
+
+            <span class="indicador-etiqueta">
+                Ventas totales
+            </span>
+
+            <strong>
+                ${{ "{:,.2f}".format(resumen.ventas_totales) }}
+            </strong>
+
+            <small>
+                Ingresos registrados
+            </small>
+
+        </article>
+
+
+        <article class="indicador tarjeta-gastos">
+
+            <span class="indicador-etiqueta">
+                Gastos operacionales
+            </span>
+
+            <strong>
+                ${{ "{:,.2f}".format(resumen.gastos_operacionales) }}
+            </strong>
+
+            <small>
+                Gastos registrados
+            </small>
+
+        </article>
+
+
+        <article class="indicador tarjeta-utilidad">
+
+            <span class="indicador-etiqueta">
+                Utilidad operativa
+            </span>
+
+            <strong>
+                ${{ "{:,.2f}".format(resumen.utilidad_operativa) }}
+            </strong>
+
+            <small>
+                Resultado operativo
+            </small>
+
+        </article>
+
+
+        <article class="indicador tarjeta-banco">
+
+            <span class="indicador-etiqueta">
+                Saldo bancario
+            </span>
+
+            <strong>
+                ${{ "{:,.2f}".format(resumen.saldo_banco) }}
+            </strong>
+
+            <small>
+                Disponible actualmente
+            </small>
+
+        </article>
+
+
+        <article class="indicador tarjeta-liquidez">
+
+            <span class="indicador-etiqueta">
+                Fondo de préstamos
+            </span>
+
+            <strong>
+                ${{ "{:,.2f}".format(resumen.fondo_prestamos) }}
+            </strong>
+
+            <small>
+                Disponible para préstamos
+            </small>
+
+        </article>
+
+
+        <article class="indicador tarjeta-margen">
+
+            <span class="indicador-etiqueta">
+                Liquidez disponible
+            </span>
+
+            <strong>
+                ${{ "{:,.2f}".format(resumen.liquidez_disponible) }}
+            </strong>
+
+            <small>
+                Banco + fondo de préstamos
+            </small>
+
+        </article>
+
+
+    </section>
+
+
+    <!-- ==================================================
+         INDICADORES FINANCIEROS
+         ================================================== -->
+
+    <section class="seccion-dashboard">
+
+        <div class="titulo-seccion">
+
+            <h2>
+                Indicadores financieros
+            </h2>
+
+            <p>
+                Principales indicadores de desempeño financiero.
+            </p>
+
+        </div>
+
+
+        <div class="modulos-dashboard">
+
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    %
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>
+                        Margen de utilidad
+                    </h3>
+
+                    <p>
+                        Rentabilidad obtenida sobre las ventas.
+                    </p>
+
+                    <div class="dato-modulo">
+
+                        <span>
+                            Margen operativo
+                        </span>
+
+                        <strong>
+                            {{ "{:.2f}".format(indicadores.margen_utilidad) }}%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    $
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>
+                        Cartera de préstamos
+                    </h3>
+
+                    <p>
+                        Valor pendiente de recuperación.
+                    </p>
+
+                    <div class="dato-modulo">
+
+                        <span>
+                            Cartera actual
+                        </span>
+
+                        <strong>
+                            ${{ "{:,.2f}".format(resumen.cartera_prestamos) }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         OPERACIONES FINANCIERAS
+         ================================================== -->
+
+    <section class="seccion-dashboard">
+
+        <div class="titulo-seccion">
+
+            <h2>
+                Operaciones financieras
+            </h2>
+
+            <p>
+                Registre ingresos y gastos que afecten
+                el saldo bancario.
+            </p>
+
+        </div>
+
+
+        <div class="modulos-dashboard">
+
+
+            <!-- ==================================================
+                 REGISTRAR INGRESO
+                 ================================================== -->
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    +
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>
+                        Registrar ingreso
+                    </h3>
+
+                    <p>
+                        Registre un nuevo ingreso de dinero.
+                    </p>
+
+
+                    <form
+                        method="POST"
+                        action="{{ url_for('finanzas') }}"
+                    >
+
+                        <input
+                            type="hidden"
+                            name="accion"
+                            value="ingreso"
+                        >
+
+
+                        <div class="campo-formulario">
+
+                            <label for="concepto-ingreso">
+                                Concepto
+                            </label>
+
+                            <input
+                                type="text"
+                                id="concepto-ingreso"
+                                name="concepto"
+                                placeholder="Ej. Venta de producto"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="campo-formulario">
+
+                            <label for="monto-ingreso">
+                                Monto
+                            </label>
+
+                            <input
+                                type="number"
+                                id="monto-ingreso"
+                                name="monto"
+                                min="0.01"
+                                step="0.01"
+                                placeholder="0.00"
+                                required
+                            >
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="boton"
+                        >
+                            Registrar ingreso
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </article>
+
+
+            <!-- ==================================================
+                 REGISTRAR GASTO
+                 ================================================== -->
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    -
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>
+                        Registrar gasto
+                    </h3>
+
+                    <p>
+                        Registre un nuevo gasto operativo.
+                    </p>
+
+
+                    <form
+                        method="POST"
+                        action="{{ url_for('finanzas') }}"
+                    >
+
+                        <input
+                            type="hidden"
+                            name="accion"
+                            value="gasto"
+                        >
+
+
+                        <div class="campo-formulario">
+
+                            <label for="concepto-gasto">
+                                Concepto
+                            </label>
+
+                            <input
+                                type="text"
+                                id="concepto-gasto"
+                                name="concepto"
+                                placeholder="Ej. Compra de materiales"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="campo-formulario">
+
+                            <label for="monto-gasto">
+                                Monto
+                            </label>
+
+                            <input
+                                type="number"
+                                id="monto-gasto"
+                                name="monto"
+                                min="0.01"
+                                step="0.01"
+                                placeholder="0.00"
+                                required
+                            >
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="boton"
+                        >
+                            Registrar gasto
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         OTROS MÓDULOS
+         ================================================== -->
+
+    <section class="seccion-dashboard">
+
+        <div class="titulo-seccion">
+
+            <h2>
+                Otros módulos
+            </h2>
+
+            <p>
+                Acceso rápido a los demás componentes
+                del sistema empresarial.
+            </p>
+
+        </div>
+
+
+        <div class="modulos-dashboard">
+
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    C
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>
+                        Contabilidad
+                    </h3>
+
+                    <p>
+                        Consulte la información contable,
+                        cartera e impuestos.
+                    </p>
+
+                    <a
+                        href="{{ url_for('contabilidad') }}"
+                        class="boton"
+                    >
+                        Ver contabilidad
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    N
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>
+                        Nómina
+                    </h3>
+
+                    <p>
+                        Consulte empleados y obligaciones
+                        laborales.
+                    </p>
+
+                    <a
+                        href="{{ url_for('nomina') }}"
+                        class="boton"
+                    >
+                        Ver nómina
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    T
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>
+                        Tesorería
+                    </h3>
+
+                    <p>
+                        Administre préstamos, devoluciones
+                        y cartera.
+                    </p>
+
+                    <a
+                        href="{{ url_for('tesoreria') }}"
+                        class="boton"
+                    >
+                        Ver tesorería
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<footer class="pie">
+
+    <div class="contenedor">
+
+        <p>
+            Sistema Empresarial · Prototipo en desarrollo
+        </p>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>

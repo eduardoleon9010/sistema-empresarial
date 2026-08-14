@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Tesorería - Sistema Empresarial</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/estilos.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<header class="encabezado">
+
+    <div class="contenedor encabezado-contenido">
+
+        <div>
+
+            <h1>Sistema Empresarial</h1>
+
+            <p>
+                Gestión de tesorería
+            </p>
+
+        </div>
+
+        <div class="estado-sistema">
+
+            <span class="indicador-activo"></span>
+
+            Sistema activo
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="contenedor">
+
+
+    <!-- ================================================== -->
+    <!-- NAVEGACIÓN -->
+    <!-- ================================================== -->
+
+    <nav class="navegacion">
+
+        <a href="{{ url_for('inicio') }}">
+            Inicio
+        </a>
+
+        <span>|</span>
+
+        <a href="{{ url_for('finanzas') }}">
+            Finanzas
+        </a>
+
+        <span>|</span>
+
+        <a href="{{ url_for('contabilidad') }}">
+            Contabilidad
+        </a>
+
+        <span>|</span>
+
+        <a href="{{ url_for('nomina') }}">
+            Nómina
+        </a>
+
+        <span>|</span>
+
+        <a href="{{ url_for('tesoreria') }}">
+            Tesorería
+        </a>
+
+    </nav>
+
+
+    <!-- ================================================== -->
+    <!-- MENSAJE -->
+    <!-- ================================================== -->
+
+    {% if mensaje %}
+
+        <div
+            class="
+                mensaje
+                {% if tipo_mensaje == 'exito' %}
+                    mensaje-exito
+                {% else %}
+                    mensaje-error
+                {% endif %}
+            "
+        >
+
+            {{ mensaje }}
+
+        </div>
+
+    {% endif %}
+
+
+    <!-- ================================================== -->
+    <!-- CABECERA -->
+    <!-- ================================================== -->
+
+    <section class="dashboard-cabecera">
+
+        <h2>
+            Módulo de Tesorería
+        </h2>
+
+        <p>
+            Administración del fondo de préstamos,
+            devoluciones y cartera de empleados.
+        </p>
+
+    </section>
+
+
+    <!-- ================================================== -->
+    <!-- INDICADORES -->
+    <!-- ================================================== -->
+
+    <section class="dashboard-grid">
+
+
+        <article class="indicador tarjeta-liquidez">
+
+            <span class="indicador-etiqueta">
+                Fondo de préstamos
+            </span>
+
+            <strong>
+                ${{ "{:,.2f}".format(
+                    estado["fondo_prestamos_disponible"]
+                ) }}
+            </strong>
+
+            <small>
+                Disponible para nuevos préstamos
+            </small>
+
+        </article>
+
+
+        <article class="indicador tarjeta-banco">
+
+            <span class="indicador-etiqueta">
+                Cartera de préstamos
+            </span>
+
+            <strong>
+
+                {% if cartera["prestamos_activos"] %}
+
+                    ${{ "{:,.2f}".format(
+                        cartera["prestamos_activos"].values()
+                        | sum
+                    ) }}
+
+                {% else %}
+
+                    $0.00
+
+                {% endif %}
+
+            </strong>
+
+            <small>
+                Valor pendiente de recuperación
+            </small>
+
+        </article>
+
+
+        <article class="indicador tarjeta-utilidad">
+
+            <span class="indicador-etiqueta">
+                Préstamos activos
+            </span>
+
+            <strong>
+                {{ cartera["prestamos_activos"] | length }}
+            </strong>
+
+            <small>
+                Empleados con deuda activa
+            </small>
+
+        </article>
+
+
+    </section>
+
+
+    <!-- ================================================== -->
+    <!-- OPERACIONES -->
+    <!-- ================================================== -->
+
+    <section class="seccion-dashboard">
+
+        <div class="titulo-seccion">
+
+            <h2>
+                Operaciones de tesorería
+            </h2>
+
+            <p>
+                Registre préstamos y devoluciones
+                de los empleados.
+            </p>
+
+        </div>
+
+
+        <div class="modulos-dashboard">
+
+
+            <!-- ================================================== -->
+            <!-- NUEVO PRESTAMO -->
+            <!-- ================================================== -->
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    +
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>
+                        Registrar nuevo préstamo
+                    </h3>
+
+                    <p>
+                        Registre un préstamo utilizando
+                        el fondo disponible.
+                    </p>
+
+
+                    <form
+                        method="POST"
+                        action="{{ url_for('tesoreria') }}"
+                    >
+
+                        <input
+                            type="hidden"
+                            name="accion"
+                            value="prestamo"
+                        >
+
+
+                        <div class="campo-formulario">
+
+                            <label for="empleado">
+                                Nombre del empleado
+                            </label>
+
+                            <input
+                                type="text"
+                                id="empleado"
+                                name="empleado"
+                                placeholder="Ej. Juan Pérez"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="campo-formulario">
+
+                            <label for="monto-prestamo">
+                                Monto solicitado
+                            </label>
+
+                            <input
+                                type="number"
+                                id="monto-prestamo"
+                                name="monto"
+                                min="0.01"
+                                step="0.01"
+                                placeholder="0.00"
+                                required
+                            >
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="boton"
+                        >
+                            Registrar préstamo
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </article>
+
+
+            <!-- ================================================== -->
+            <!-- DEVOLUCIÓN -->
+            <!-- ================================================== -->
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    -
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>
+                        Registrar devolución
+                    </h3>
+
+                    <p>
+                        Registre un abono realizado
+                        por un empleado.
+                    </p>
+
+
+                    <form
+                        method="POST"
+                        action="{{ url_for('tesoreria') }}"
+                    >
+
+                        <input
+                            type="hidden"
+                            name="accion"
+                            value="devolucion"
+                        >
+
+
+                        <div class="campo-formulario">
+
+                            <label for="empleado-devolucion">
+                                Nombre del empleado
+                            </label>
+
+                            <input
+                                type="text"
+                                id="empleado-devolucion"
+                                name="empleado"
+                                placeholder="Ej. Juan Pérez"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="campo-formulario">
+
+                            <label for="monto-devolucion">
+                                Monto del abono
+                            </label>
+
+                            <input
+                                type="number"
+                                id="monto-devolucion"
+                                name="monto"
+                                min="0.01"
+                                step="0.01"
+                                placeholder="0.00"
+                                required
+                            >
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="boton"
+                        >
+                            Registrar devolución
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================== -->
+    <!-- CARTERA -->
+    <!-- ================================================== -->
+
+    <section class="seccion-dashboard">
+
+        <div class="titulo-seccion">
+
+            <h2>
+                Cartera de empleados
+            </h2>
+
+            <p>
+                Consulte los préstamos que actualmente
+                se encuentran pendientes de pago.
+            </p>
+
+        </div>
+
+
+        <article class="tarjeta">
+
+
+            {% if cartera["prestamos_activos"] %}
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Empleado
+                            </th>
+
+                            <th>
+                                Deuda activa
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        {% for empleado, deuda in cartera["prestamos_activos"].items() %}
+
+                            <tr>
+
+                                <td>
+                                    {{ empleado }}
+                                </td>
+
+                                <td>
+                                    ${{ "{:,.2f}".format(deuda) }}
+                                </td>
+
+                            </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            {% else %}
+
+                <p>
+                    No existen préstamos activos.
+                </p>
+
+            {% endif %}
+
+
+        </article>
+
+    </section>
+
+
+    <!-- ================================================== -->
+    <!-- OTROS MÓDULOS -->
+    <!-- ================================================== -->
+
+    <section class="seccion-dashboard">
+
+        <div class="titulo-seccion">
+
+            <h2>
+                Otros módulos
+            </h2>
+
+            <p>
+                Acceda rápidamente a los demás módulos
+                del sistema empresarial.
+            </p>
+
+        </div>
+
+
+        <div class="modulos-dashboard">
+
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    F
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>
+                        Finanzas
+                    </h3>
+
+                    <p>
+                        Gestión de ingresos, gastos
+                        y liquidez.
+                    </p>
+
+                    <a
+                        href="{{ url_for('finanzas') }}"
+                        class="boton"
+                    >
+                        Ver finanzas
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    C
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>
+                        Contabilidad
+                    </h3>
+
+                    <p>
+                        Consulta de información contable,
+                        cartera e impuestos.
+                    </p>
+
+                    <a
+                        href="{{ url_for('contabilidad') }}"
+                        class="boton"
+                    >
+                        Ver contabilidad
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    N
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>
+                        Nómina
+                    </h3>
+
+                    <p>
+                        Gestión de empleados y obligaciones
+                        laborales.
+                    </p>
+
+                    <a
+                        href="{{ url_for('nomina') }}"
+                        class="boton"
+                    >
+                        Ver nómina
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<footer class="pie">
+
+    <div class="contenedor">
+
+        <p>
+            Sistema Empresarial · Prototipo en desarrollo
+        </p>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
+
+

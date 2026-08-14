@@ -1,0 +1,777 @@
+/* ============================================================
+   SISTEMA EMPRESARIAL
+   Hoja de estilos principal
+   Version 1.0 - Prototipo
+   ============================================================ */
+
+
+/* ============================================================
+   CONFIGURACION GENERAL
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    margin: 0;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #f4f6f9;
+
+    color: #1f2937;
+
+    line-height: 1.6;
+}
+
+
+a {
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+.contenedor {
+    width: min(1180px, 92%);
+
+    margin: 0 auto;
+}
+
+
+/* ============================================================
+   ENCABEZADO
+   ============================================================ */
+
+.encabezado {
+    background: #172033;
+
+    color: #ffffff;
+
+    border-bottom: 4px solid #2563eb;
+}
+
+
+.encabezado-contenido {
+    min-height: 90px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+.encabezado h1 {
+    margin: 0;
+
+    font-size: 1.7rem;
+
+    font-weight: 700;
+
+    letter-spacing: -0.4px;
+}
+
+
+.encabezado p {
+    margin: 3px 0 0;
+
+    color: #cbd5e1;
+
+    font-size: 0.95rem;
+}
+
+
+/* ============================================================
+   ESTADO DEL SISTEMA
+   ============================================================ */
+
+.estado-sistema {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: #dbeafe;
+
+    font-size: 0.85rem;
+
+    white-space: nowrap;
+}
+
+
+.indicador-activo {
+    width: 9px;
+
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.15);
+}
+
+
+/* ============================================================
+   DASHBOARD
+   ============================================================ */
+
+.dashboard-cabecera {
+    margin-top: 35px;
+
+    margin-bottom: 25px;
+}
+
+
+.dashboard-cabecera h2 {
+    margin: 0;
+
+    color: #111827;
+
+    font-size: 1.8rem;
+
+    font-weight: 700;
+}
+
+
+.dashboard-cabecera p {
+    margin: 5px 0 0;
+
+    color: #64748b;
+}
+
+
+/* ============================================================
+   INDICADORES PRINCIPALES
+   ============================================================ */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+
+    margin-bottom: 45px;
+}
+
+
+.indicador {
+    position: relative;
+
+    min-height: 145px;
+
+    padding: 22px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 3px 10px rgba(15, 23, 42, 0.05);
+
+    overflow: hidden;
+}
+
+
+.indicador::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 5px;
+
+    height: 100%;
+
+    background: #2563eb;
+}
+
+
+.indicador-etiqueta {
+    display: block;
+
+    color: #64748b;
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+
+.indicador strong {
+    display: block;
+
+    color: #111827;
+
+    font-size: 1.55rem;
+
+    line-height: 1.2;
+
+    margin-bottom: 8px;
+}
+
+
+.indicador small {
+    color: #94a3b8;
+
+    font-size: 0.78rem;
+}
+
+
+/* ============================================================
+   COLORES SEMANTICOS DE INDICADORES
+   ============================================================ */
+
+.tarjeta-finanzas::before {
+    background: #2563eb;
+}
+
+
+.tarjeta-gastos::before {
+    background: #f59e0b;
+}
+
+
+.tarjeta-utilidad::before {
+    background: #16a34a;
+}
+
+
+.tarjeta-banco::before {
+    background: #0ea5e9;
+}
+
+
+.tarjeta-liquidez::before {
+    background: #7c3aed;
+}
+
+
+.tarjeta-margen::before {
+    background: #0891b2;
+}
+
+
+/* ============================================================
+   SECCIONES
+   ============================================================ */
+
+.seccion-dashboard {
+    margin-bottom: 45px;
+}
+
+
+.titulo-seccion {
+    margin-bottom: 20px;
+}
+
+
+.titulo-seccion h2 {
+    margin: 0;
+
+    font-size: 1.35rem;
+
+    color: #111827;
+}
+
+
+.titulo-seccion p {
+    margin: 4px 0 0;
+
+    color: #64748b;
+
+    font-size: 0.9rem;
+}
+
+
+/* ============================================================
+   MODULOS DEL DASHBOARD
+   ============================================================ */
+
+.modulos-dashboard {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+.modulo-dashboard {
+    display: flex;
+
+    gap: 18px;
+
+    padding: 23px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 3px 10px rgba(15, 23, 42, 0.04);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.modulo-dashboard:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+
+.modulo-icono {
+    flex-shrink: 0;
+
+    width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    font-size: 1.15rem;
+
+    font-weight: 700;
+}
+
+
+.modulo-contenido {
+    flex: 1;
+}
+
+
+.modulo-contenido h3 {
+    margin: 0 0 4px;
+
+    font-size: 1.1rem;
+
+    color: #111827;
+}
+
+
+.modulo-contenido > p {
+    margin: 0 0 16px;
+
+    color: #64748b;
+
+    font-size: 0.86rem;
+}
+
+
+/* ============================================================
+   DATOS DE LOS MODULOS
+   ============================================================ */
+
+.dato-modulo {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 9px 0;
+
+    border-top: 1px solid #f1f5f9;
+
+    font-size: 0.85rem;
+}
+
+
+.dato-modulo span {
+    color: #64748b;
+}
+
+
+.dato-modulo strong {
+    color: #111827;
+
+    white-space: nowrap;
+}
+
+
+.estado-ok {
+    color: #15803d !important;
+}
+
+
+.estado-pendiente {
+    color: #b45309 !important;
+}
+
+
+/* ============================================================
+   BOTONES
+   ============================================================ */
+
+.boton {
+    display: inline-block;
+
+    margin-top: 16px;
+
+    padding: 9px 15px;
+
+    border-radius: 7px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    font-size: 0.84rem;
+
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.boton:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   TARJETAS GENERALES
+   ============================================================ */
+
+.tarjeta {
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    padding: 24px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 3px 10px rgba(15, 23, 42, 0.05);
+}
+
+
+/* ============================================================
+   TABLAS
+   ============================================================ */
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: #ffffff;
+}
+
+
+th,
+td {
+    padding: 12px 14px;
+
+    text-align: left;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+
+th {
+    background: #f8fafc;
+
+    color: #475569;
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+}
+
+
+td {
+    color: #334155;
+
+    font-size: 0.9rem;
+}
+
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* ============================================================
+   FORMULARIOS
+   ============================================================ */
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    padding: 10px 12px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #1f2937;
+
+    font-family: inherit;
+
+    font-size: 0.9rem;
+
+    outline: none;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+button {
+    border: none;
+
+    cursor: pointer;
+
+    font-family: inherit;
+}
+
+.campo-formulario {
+    margin-bottom: 14px;
+}
+
+
+.campo-formulario label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #475569;
+
+    font-size: 0.84rem;
+
+    font-weight: 600;
+}
+
+
+.navegacion {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 22px;
+
+    color: #64748b;
+
+    font-size: 0.88rem;
+}
+
+
+.navegacion a {
+    color: #2563eb;
+
+    font-weight: 600;
+}
+
+
+.navegacion a:hover {
+    color: #1d4ed8;
+}
+
+
+
+/* ============================================================
+   MENSAJES
+   ============================================================ */
+
+.mensaje {
+    padding: 13px 16px;
+
+    margin-bottom: 22px;
+
+    border-radius: 8px;
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+}
+
+
+.mensaje-exito {
+    background: #ecfdf5;
+
+    border: 1px solid #a7f3d0;
+
+    color: #047857;
+}
+
+
+.mensaje-error {
+    background: #fef2f2;
+
+    border: 1px solid #fecaca;
+
+    color: #b91c1c;
+}
+
+
+/* ============================================================
+   PIE DE PAGINA
+   ============================================================ */
+
+.pie {
+    margin-top: 50px;
+
+    padding: 25px 0;
+
+    background: #172033;
+
+    color: #94a3b8;
+
+    text-align: center;
+
+    font-size: 0.82rem;
+}
+
+
+.pie p {
+    margin: 0;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    .dashboard-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .encabezado-contenido {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        justify-content: center;
+
+        padding: 20px 0;
+
+        gap: 12px;
+    }
+
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .modulos-dashboard {
+        grid-template-columns: 1fr;
+    }
+
+
+    .dashboard-cabecera {
+        margin-top: 25px;
+    }
+
+
+    .dashboard-cabecera h2 {
+        font-size: 1.5rem;
+    }
+
+
+    .indicador strong {
+        font-size: 1.35rem;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .contenedor {
+        width: 94%;
+    }
+
+
+    .modulo-dashboard {
+        flex-direction: column;
+    }
+
+
+    .modulo-icono {
+        width: 42px;
+
+        height: 42px;
+    }
+
+}

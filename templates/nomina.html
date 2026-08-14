@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Nómina - Sistema Empresarial</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/estilos.css') }}"
+    >
+
+</head>
+
+<body>
+
+
+<!-- =========================================================
+     ENCABEZADO
+     ========================================================= -->
+
+<header class="encabezado">
+
+    <div class="contenedor encabezado-contenido">
+
+        <div>
+
+            <h1>Sistema Empresarial</h1>
+
+            <p>
+                Gestión de nómina
+            </p>
+
+        </div>
+
+        <div class="estado-sistema">
+
+            <span class="indicador-activo"></span>
+
+            Sistema activo
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="contenedor">
+
+
+    <!-- =====================================================
+         NAVEGACIÓN
+         ===================================================== -->
+
+    <nav class="navegacion">
+
+        <a href="{{ url_for('inicio') }}">
+            Inicio
+        </a>
+
+        <span>|</span>
+
+        <a href="{{ url_for('finanzas') }}">
+            Finanzas
+        </a>
+
+        <span>|</span>
+
+        <a href="{{ url_for('contabilidad') }}">
+            Contabilidad
+        </a>
+
+        <span>|</span>
+
+        <a href="{{ url_for('nomina') }}">
+            Nómina
+        </a>
+
+        <span>|</span>
+
+        <a href="{{ url_for('tesoreria') }}">
+            Tesorería
+        </a>
+
+    </nav>
+
+
+    <!-- =====================================================
+         MENSAJE
+         ===================================================== -->
+
+    {% if mensaje %}
+
+        <div
+            class="
+                mensaje
+                {% if tipo_mensaje == 'exito' %}
+                    mensaje-exito
+                {% else %}
+                    mensaje-error
+                {% endif %}
+            "
+        >
+
+            {{ mensaje }}
+
+        </div>
+
+    {% endif %}
+
+
+    <!-- =====================================================
+         CABECERA
+         ===================================================== -->
+
+    <section class="dashboard-cabecera">
+
+        <h2>
+            Módulo de Nómina
+        </h2>
+
+        <p>
+            Gestión de empleados, cálculo y control
+            del pago de nómina.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         INDICADORES
+         ===================================================== -->
+
+    <section class="dashboard-grid">
+
+
+        <!-- EMPLEADOS -->
+
+        <article class="indicador tarjeta-finanzas">
+
+            <span class="indicador-etiqueta">
+                Empleados
+            </span>
+
+            <strong>
+                {{ nomina.empleados }}
+            </strong>
+
+            <small>
+                Empleados registrados
+            </small>
+
+        </article>
+
+
+        <!-- TOTAL NÓMINA -->
+
+        <article class="indicador tarjeta-gastos">
+
+            <span class="indicador-etiqueta">
+                Total de nómina
+            </span>
+
+            <strong>
+                ${{ "{:,.2f}".format(nomina.total_nomina) }}
+            </strong>
+
+            <small>
+                Obligación laboral
+            </small>
+
+        </article>
+
+
+        <!-- ESTADO -->
+
+        <article class="indicador tarjeta-utilidad">
+
+            <span class="indicador-etiqueta">
+                Estado del pago
+            </span>
+
+            {% if estado.nomina_pagada %}
+
+                <strong class="estado-ok">
+                    Pagada
+                </strong>
+
+                <small>
+                    Nómina registrada como pagada
+                </small>
+
+            {% else %}
+
+                <strong class="estado-pendiente">
+                    Pendiente
+                </strong>
+
+                <small>
+                    Requiere realizar el pago
+                </small>
+
+            {% endif %}
+
+        </article>
+
+
+    </section>
+
+
+    <!-- =====================================================
+         INFORMACIÓN DE NÓMINA
+         ===================================================== -->
+
+    <section class="seccion-dashboard">
+
+        <div class="titulo-seccion">
+
+            <h2>
+                Resumen de nómina
+            </h2>
+
+            <p>
+                Información consolidada de las obligaciones
+                laborales actuales.
+            </p>
+
+        </div>
+
+
+        <div class="modulos-dashboard">
+
+
+            <!-- RESUMEN -->
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    N
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>
+                        Nómina actual
+                    </h3>
+
+                    <p>
+                        Resumen de empleados y valor total
+                        de la nómina.
+                    </p>
+
+                    <div class="dato-modulo">
+
+                        <span>
+                            Empleados
+                        </span>
+
+                        <strong>
+                            {{ nomina.empleados }}
+                        </strong>
+
+                    </div>
+
+                    <div class="dato-modulo">
+
+                        <span>
+                            Total nómina
+                        </span>
+
+                        <strong>
+                            ${{ "{:,.2f}".format(nomina.total_nomina) }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- ESTADO DEL PAGO -->
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    $
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>
+                        Control del pago
+                    </h3>
+
+                    <p>
+                        Estado actual del pago de nómina.
+                    </p>
+
+                    <div class="dato-modulo">
+
+                        <span>
+                            Estado
+                        </span>
+
+                        {% if estado.nomina_pagada %}
+
+                            <strong class="estado-ok">
+                                Pagada
+                            </strong>
+
+                        {% else %}
+
+                            <strong class="estado-pendiente">
+                                Pendiente
+                            </strong>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EMPLEADOS
+         ===================================================== -->
+
+    <section class="seccion-dashboard">
+
+        <div class="titulo-seccion">
+
+            <h2>
+                Empleados registrados
+            </h2>
+
+            <p>
+                Personal actualmente registrado en el sistema.
+            </p>
+
+        </div>
+
+
+        <div class="tarjeta">
+
+            {% if empleados %}
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Empleado
+                            </th>
+
+                            <th>
+                                Sueldo base
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for nombre, datos in empleados.items() %}
+
+                            <tr>
+
+                                <td>
+                                    {{ nombre }}
+                                </td>
+
+                                <td>
+                                    ${{ "{:,.2f}".format(datos.sueldo_base) }}
+                                </td>
+
+                            </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            {% else %}
+
+                <p>
+                    No existen empleados registrados.
+                </p>
+
+            {% endif %}
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PAGO DE NÓMINA
+         ===================================================== -->
+
+    <section class="seccion-dashboard">
+
+        <div class="titulo-seccion">
+
+            <h2>
+                Pago de nómina
+            </h2>
+
+            <p>
+                Registre el pago de la nómina cuando
+                corresponda.
+            </p>
+
+        </div>
+
+
+        <div class="modulos-dashboard">
+
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    $
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>
+                        Estado del pago
+                    </h3>
+
+                    {% if estado.nomina_pagada %}
+
+                        <p>
+                            La nómina se encuentra registrada
+                            como pagada.
+                        </p>
+
+                        <div class="dato-modulo">
+
+                            <span>
+                                Estado
+                            </span>
+
+                            <strong class="estado-ok">
+                                Pagada
+                            </strong>
+
+                        </div>
+
+                    {% else %}
+
+                        <p>
+                            La nómina se encuentra pendiente
+                            de pago.
+                        </p>
+
+                        <div class="dato-modulo">
+
+                            <span>
+                                Valor a pagar
+                            </span>
+
+                            <strong>
+                                ${{ "{:,.2f}".format(nomina.total_nomina) }}
+                            </strong>
+
+                        </div>
+
+
+                        <form
+                            method="POST"
+                            action="{{ url_for('nomina') }}"
+                        >
+
+                            <button
+                                type="submit"
+                                class="boton"
+                            >
+                                Pagar nómina
+                            </button>
+
+                        </form>
+
+                    {% endif %}
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         NAVEGACIÓN ENTRE MÓDULOS
+         ===================================================== -->
+
+    <section class="seccion-dashboard">
+
+        <div class="titulo-seccion">
+
+            <h2>
+                Otros módulos
+            </h2>
+
+            <p>
+                Acceda rápidamente a los demás módulos
+                del sistema empresarial.
+            </p>
+
+        </div>
+
+
+        <div class="modulos-dashboard">
+
+
+            <!-- FINANZAS -->
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    F
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>
+                        Finanzas
+                    </h3>
+
+                    <p>
+                        Gestión de ingresos, gastos,
+                        saldo y liquidez.
+                    </p>
+
+                    <a
+                        href="{{ url_for('finanzas') }}"
+                        class="boton"
+                    >
+                        Ver finanzas
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- CONTABILIDAD -->
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    C
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>
+                        Contabilidad
+                    </h3>
+
+                    <p>
+                        Consulta y control de la
+                        información contable.
+                    </p>
+
+                    <a
+                        href="{{ url_for('contabilidad') }}"
+                        class="boton"
+                    >
+                        Ver contabilidad
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- TESORERÍA -->
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    T
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>
+                        Tesorería
+                    </h3>
+
+                    <p>
+                        Administración de préstamos,
+                        devoluciones y cartera.
+                    </p>
+
+                    <a
+                        href="{{ url_for('tesoreria') }}"
+                        class="boton"
+                    >
+                        Ver tesorería
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<!-- =========================================================
+     PIE DE PÁGINA
+     ========================================================= -->
+
+<footer class="pie">
+
+    <div class="contenedor">
+
+        <p>
+            Sistema Empresarial · Prototipo en desarrollo
+        </p>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
+

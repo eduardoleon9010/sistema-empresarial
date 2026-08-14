@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - Sistema Empresarial</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/estilos.css') }}"
+    >
+
+</head>
+
+<body>
+
+<header class="encabezado">
+
+    <div class="contenedor encabezado-contenido">
+
+        <div>
+
+            <h1>Sistema Empresarial</h1>
+
+            <p>
+                Panel de control empresarial
+            </p>
+
+        </div>
+
+        <div class="estado-sistema">
+
+            <span class="indicador-activo"></span>
+
+            Sistema activo
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="contenedor">
+
+    <!-- ================================================== -->
+    <!-- DASHBOARD -->
+    <!-- ================================================== -->
+
+    <section class="dashboard-cabecera">
+
+        <div>
+
+            <h2>Dashboard empresarial</h2>
+
+            <p>
+                Resumen general del estado financiero,
+                contable, laboral y de tesorería.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================== -->
+    <!-- INDICADORES PRINCIPALES -->
+    <!-- ================================================== -->
+
+    <section class="dashboard-grid">
+
+
+        <article class="indicador tarjeta-finanzas">
+
+            <span class="indicador-etiqueta">
+                Ventas totales
+            </span>
+
+            <strong>
+                ${{ "{:,.2f}".format(indicadores.finanzas.ventas_totales) }}
+            </strong>
+
+            <small>
+                Finanzas
+            </small>
+
+        </article>
+
+
+        <article class="indicador tarjeta-gastos">
+
+            <span class="indicador-etiqueta">
+                Gastos operacionales
+            </span>
+
+            <strong>
+                ${{ "{:,.2f}".format(indicadores.finanzas.gastos_operacionales) }}
+            </strong>
+
+            <small>
+                Finanzas
+            </small>
+
+        </article>
+
+
+        <article class="indicador tarjeta-utilidad">
+
+            <span class="indicador-etiqueta">
+                Utilidad operativa
+            </span>
+
+            <strong>
+                ${{ "{:,.2f}".format(indicadores.finanzas.utilidad_operativa) }}
+            </strong>
+
+            <small>
+                Resultado operativo
+            </small>
+
+        </article>
+
+
+        <article class="indicador tarjeta-banco">
+
+            <span class="indicador-etiqueta">
+                Saldo bancario
+            </span>
+
+            <strong>
+                ${{ "{:,.2f}".format(indicadores.finanzas.saldo_banco) }}
+            </strong>
+
+            <small>
+                Disponible en banco
+            </small>
+
+        </article>
+
+
+        <article class="indicador tarjeta-liquidez">
+
+            <span class="indicador-etiqueta">
+                Liquidez disponible
+            </span>
+
+            <strong>
+                ${{ "{:,.2f}".format(indicadores.finanzas.liquidez_disponible) }}
+            </strong>
+
+            <small>
+                Banco + fondo de préstamos
+            </small>
+
+        </article>
+
+
+        <article class="indicador tarjeta-margen">
+
+            <span class="indicador-etiqueta">
+                Margen de utilidad
+            </span>
+
+            <strong>
+                {{ "{:.2f}".format(indicadores.indicadores_financieros.margen_utilidad) }}%
+            </strong>
+
+            <small>
+                Rentabilidad operativa
+            </small>
+
+        </article>
+
+
+    </section>
+
+
+    <!-- ================================================== -->
+    <!-- MODULOS -->
+    <!-- ================================================== -->
+
+    <section class="seccion-dashboard">
+
+        <div class="titulo-seccion">
+
+            <h2>Estado de los módulos</h2>
+
+            <p>
+                Información consolidada del sistema empresarial.
+            </p>
+
+        </div>
+
+
+        <div class="modulos-dashboard">
+
+
+            <!-- CONTABILIDAD -->
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    C
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>Contabilidad</h3>
+
+                    <p>
+                        Gestión y control de la información contable.
+                    </p>
+
+                    <div class="dato-modulo">
+
+                        <span>
+                            Cuentas por cobrar
+                        </span>
+
+                        <strong>
+                            ${{ "{:,.2f}".format(indicadores.contabilidad.cuentas_por_cobrar) }}
+                        </strong>
+
+                    </div>
+
+                    <div class="dato-modulo">
+
+                        <span>
+                            Impuestos
+                        </span>
+
+                        {% if indicadores.impuestos.impuestos_pagados %}
+
+                            <strong class="estado-ok">
+                                Pagados
+                            </strong>
+
+                        {% else %}
+
+                            <strong class="estado-pendiente">
+                                Pendientes
+                            </strong>
+
+                        {% endif %}
+
+                    </div>
+
+                    <a
+                        href="{{ url_for('contabilidad') }}"
+                        class="boton"
+                    >
+                        Ver contabilidad
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- NOMINA -->
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    N
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>Nómina</h3>
+
+                    <p>
+                        Gestión de empleados y obligaciones laborales.
+                    </p>
+
+                    <div class="dato-modulo">
+
+                        <span>
+                            Empleados
+                        </span>
+
+                        <strong>
+                            {{ indicadores.nomina.empleados }}
+                        </strong>
+
+                    </div>
+
+                    <div class="dato-modulo">
+
+                        <span>
+                            Total nómina
+                        </span>
+
+                        <strong>
+                            ${{ "{:,.2f}".format(indicadores.nomina.total_nomina) }}
+                        </strong>
+
+                    </div>
+
+                    <a
+                        href="{{ url_for('nomina') }}"
+                        class="boton"
+                    >
+                        Ver nómina
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- TESORERIA -->
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    T
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>Tesorería</h3>
+
+                    <p>
+                        Administración del fondo y cartera de préstamos.
+                    </p>
+
+                    <div class="dato-modulo">
+
+                        <span>
+                            Fondo disponible
+                        </span>
+
+                        <strong>
+                            ${{ "{:,.2f}".format(indicadores.tesoreria.fondo_disponible) }}
+                        </strong>
+
+                    </div>
+
+                    <div class="dato-modulo">
+
+                        <span>
+                            Cartera
+                        </span>
+
+                        <strong>
+                            ${{ "{:,.2f}".format(indicadores.tesoreria.cartera_total) }}
+                        </strong>
+
+                    </div>
+
+                    <a
+                        href="{{ url_for('tesoreria') }}"
+                        class="boton"
+                    >
+                        Ver tesorería
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- FINANZAS -->
+
+            <article class="modulo-dashboard">
+
+                <div class="modulo-icono">
+                    F
+                </div>
+
+                <div class="modulo-contenido">
+
+                    <h3>Finanzas</h3>
+
+                    <p>
+                        Control de ingresos, gastos y liquidez.
+                    </p>
+
+                    <div class="dato-modulo">
+
+                        <span>
+                            Saldo bancario
+                        </span>
+
+                        <strong>
+                            ${{ "{:,.2f}".format(indicadores.finanzas.saldo_banco) }}
+                        </strong>
+
+                    </div>
+
+                    <div class="dato-modulo">
+
+                        <span>
+                            Utilidad
+                        </span>
+
+                        <strong>
+                            ${{ "{:,.2f}".format(indicadores.finanzas.utilidad_operativa) }}
+                        </strong>
+
+                    </div>
+
+                    <a
+                        href="{{ url_for('finanzas') }}"
+                        class="boton"
+                    >
+                        Ver finanzas
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<footer class="pie">
+
+    <div class="contenedor">
+
+        <p>
+            Sistema Empresarial · Prototipo en desarrollo
+        </p>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
