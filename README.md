@@ -489,52 +489,66 @@ La intención no es simplemente agregar funcionalidades, sino que cada nueva ver
 
 ## Licencia
 
-Este proyecto se encuentra en etapa de desarrollo e investigación.
-
-Si el repositorio cuenta con una licencia específica, se recomienda sustituir esta sección por los términos oficiales de dicha licencia.
-
+MIT
 
 ## Autoría
 
 <p align="center">
-
-<a href="https://github.com/USUARIO_AUTOR_1">
-  <img src="https://img.shields.io/badge/GitHub-Autor%201-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Autor 1">
-</a>
-
-&nbsp;&nbsp;&nbsp;
-
-<a href="https://github.com/USUARIO_AUTOR_2">
-  <img src="https://img.shields.io/badge/GitHub-Autor%202-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Autor 2">
-</a>
-
+  <strong>Proyecto desarrollado por</strong>
 </p>
+
+<table align="center">
+  <tr>
+    <td align="center" width="45%">
+      <h3>Sandra Marcela Cardona Giraldo</h3>
+      <p>Investigación · Desarrollo de software</p>
+      <a href="https://www.linkedin.com/in/USUARIO_AUTOR_1/" target="_blank">
+        <img
+          src="https://img.shields.io/badge/LinkedIn-Perfil%20profesional-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"
+          alt="LinkedIn Autor 1"
+        />
+      </a>
+    </td>
+
+    <td width="10%"></td>
+
+    <td align="center" width="45%">
+      <h3>Leon, E.</h3>
+      <p>Investigación · Desarrollo de software</p>
+      <a href="[https://www.linkedin.com/in/USUARIO_AUTOR_2/](https://www.linkedin.com/in/mbaleon/)" target="_blank">
+        <img
+          src="https://img.shields.io/badge/LinkedIn-Perfil%20profesional-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"
+          alt="LinkedIn Autor 2"
+        />
+      </a>
+    </td>
+  </tr>
+</table>
+
+<br>
 
 <p align="center">
-
-<strong>Nombre completo del Autor 1</strong> ·
-<strong>Nombre completo del Autor 2</strong>
-
-</p>
-
-<p align="center">
-Desarrollo de software · Investigación aplicada · Innovación tecnológica
+  <em>
+    Desarrollo de software · Investigación aplicada · Innovación tecnológica
+  </em>
 </p>
 
 
-### Contexto
+## Contexto académico y tecnológico
 
 Este proyecto fue desarrollado como una experiencia de **investigación formativa, desarrollo de software e innovación tecnológica aplicada**, orientada a transformar una necesidad empresarial concreta en un prototipo funcional y verificable.
 
 El trabajo integra conocimientos de **programación, desarrollo web, gestión empresarial, sistemas de información, automatización y validación funcional**.
 
-**Línea temática:** Gestión empresarial, automatización, sistemas de información y desarrollo tecnológico.
+### Línea temática
 
 <p align="center">
-  <em>
-    “De una necesidad empresarial concreta a un prototipo verificable.”
-  </em>
+  <img src="https://img.shields.io/badge/Gestión%20empresarial-0A7B83?style=flat-square" alt="Gestión empresarial">
+  <img src="https://img.shields.io/badge/Automatización-0A7B83?style=flat-square" alt="Automatización">
+  <img src="https://img.shields.io/badge/Sistemas%20de%20información-0A7B83?style=flat-square" alt="Sistemas de información">
+  <img src="https://img.shields.io/badge/Desarrollo%20tecnológico-0A7B83?style=flat-square" alt="Desarrollo tecnológico">
 </p>
+
 
 <p align="center">
   <strong>Sistema de Gestión Empresarial Unificado</strong>
