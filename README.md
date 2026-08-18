@@ -1,4 +1,11 @@
-# Sistema de Gestión Empresarial Unificado
+<p align="center">
+  <img
+    src="https://drive.google.com/uc?export=view&id=1d5Vnn1J0bDWThA2wTt5ZKwsNmVFBRRV4"
+    alt="Sistema de Gestión Empresarial Unificado"
+    width="100%"
+  />
+</p>
+
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
