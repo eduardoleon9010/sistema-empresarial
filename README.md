@@ -501,7 +501,6 @@ MIT
   </em>
 </p>
 
-
 ## Contexto académico y tecnológico
 
 Este proyecto fue desarrollado como una experiencia de **investigación formativa, desarrollo de software e innovación tecnológica aplicada**, orientada a transformar una necesidad empresarial concreta en un prototipo funcional y verificable.
