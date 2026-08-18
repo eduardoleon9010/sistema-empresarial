@@ -338,7 +338,6 @@ https://sistema-empresarial-v1.onrender.com/
 
 La aplicación permite observar la integración de los módulos de Finanzas, Contabilidad, Nómina y Tesorería. La disponibilidad del prototipo facilita la inspección del artefacto y la reproducción de los escenarios básicos de aceptación.
 
-
 ## Alcance de la V1
 
 Esta versión está deliberadamente delimitada.
@@ -359,7 +358,6 @@ La V1 **no incorpora todavía**:
 * Evaluación formal de usabilidad.
 
 Esto no representa una falla accidental del proyecto. Es una decisión de alcance: **primero comprobar la lógica fundamental; después ampliar la infraestructura.**
-
 
 ## Ruta de evolución
 
@@ -437,7 +435,6 @@ Sin embargo, **no permite afirmar todavía** que el sistema:
 
 Esta delimitación forma parte del rigor del proyecto: **se presenta lo que fue construido, se demuestra lo que fue probado y se reconoce aquello que todavía debe investigarse.**
 
----
 
 ## Contribución
 
@@ -490,12 +487,47 @@ Este proyecto se encuentra en etapa de desarrollo e investigación.
 Si el repositorio cuenta con una licencia específica, se recomienda sustituir esta sección por los términos oficiales de dicha licencia.
 
 
-## Autoría y contexto académico
+## Autoría
 
-Proyecto desarrollado como una experiencia de **investigación formativa, desarrollo de software e innovación tecnológica aplicada**.
+<p align="center">
+
+<a href="https://github.com/USUARIO_AUTOR_1">
+  <img src="https://img.shields.io/badge/GitHub-Autor%201-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Autor 1">
+</a>
+
+&nbsp;&nbsp;&nbsp;
+
+<a href="https://github.com/USUARIO_AUTOR_2">
+  <img src="https://img.shields.io/badge/GitHub-Autor%202-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Autor 2">
+</a>
+
+</p>
+
+<p align="center">
+
+<strong>Nombre completo del Autor 1</strong> ·
+<strong>Nombre completo del Autor 2</strong>
+
+</p>
+
+<p align="center">
+Desarrollo de software · Investigación aplicada · Innovación tecnológica
+</p>
+
+
+### Contexto
+
+Este proyecto fue desarrollado como una experiencia de **investigación formativa, desarrollo de software e innovación tecnológica aplicada**, orientada a transformar una necesidad empresarial concreta en un prototipo funcional y verificable.
+
+El trabajo integra conocimientos de **programación, desarrollo web, gestión empresarial, sistemas de información, automatización y validación funcional**.
 
 **Línea temática:** Gestión empresarial, automatización, sistemas de información y desarrollo tecnológico.
 
+<p align="center">
+  <em>
+    “De una necesidad empresarial concreta a un prototipo verificable.”
+  </em>
+</p>
 
 <p align="center">
   <strong>Sistema de Gestión Empresarial Unificado</strong>
