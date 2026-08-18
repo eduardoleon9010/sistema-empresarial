@@ -493,39 +493,7 @@ MIT
 
 ## Autoría
 
-<p align="center">
-  <strong>Proyecto desarrollado por</strong>
-</p>
-
-<table align="center">
-  <tr>
-    <td align="center" width="45%">
-      <h3>Sandra Marcela Cardona Giraldo</h3>
-      <p>Investigación · Desarrollo de software</p>
-      <a href="https://www.linkedin.com/in/USUARIO_AUTOR_1/" target="_blank">
-        <img
-          src="https://img.shields.io/badge/LinkedIn-Perfil%20profesional-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"
-          alt="LinkedIn Autor 1"
-        />
-      </a>
-    </td>
-
-    <td width="10%"></td>
-
-    <td align="center" width="45%">
-      <h3>Leon, E.</h3>
-      <p>Investigación · Desarrollo de software</p>
-      <a href="[https://www.linkedin.com/in/USUARIO_AUTOR_2/](https://www.linkedin.com/in/mbaleon/)" target="_blank">
-        <img
-          src="https://img.shields.io/badge/LinkedIn-Perfil%20profesional-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"
-          alt="LinkedIn Autor 2"
-        />
-      </a>
-    </td>
-  </tr>
-</table>
-
-<br>
+<p align="center"> <strong>Proyecto desarrollado por</strong> </p> <table align="center"> <tr> <td align="center" width="50%"> <h3>Sandra Marcela Cardona Giraldo</h3> <p>Investigación · Desarrollo de software</p> <a href="https://www.linkedin.com/in/USUARIO_AUTOR_1/" target="_blank"> <img src="https://img.shields.io/badge/LinkedIn-Perfil%20profesional-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Sandra Marcela Cardona Giraldo" /> </a> </td> <td align="center" width="50%"> <h3>Leon, E.</h3> <p>Investigación · Desarrollo de software</p> <a href="https://www.linkedin.com/in/mbaleon/" target="_blank"> <img src="https://img.shields.io/badge/LinkedIn-Perfil%20profesional-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Leon, E." /> </a> </td> </tr> </table> <br>
 
 <p align="center">
   <em>
