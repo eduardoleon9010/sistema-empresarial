@@ -11,7 +11,7 @@
   <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/Flask-Web%20Application-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
   <img src="https://img.shields.io/badge/Estado-V1%20Funcional-2EA44F?style=for-the-badge" alt="Estado">
-  <img src="https://img.shields.io/badge/Investigación-Aplicada-6f42c1?style=for-the-badge" alt="Investigación aplicada">
+  <img src="https://img.shields.io/badge/Investigación-Aplicada-6f42c1?style=for-the-badge" alt="Investigación formativa">
 </p>
 
 <p align="center">
