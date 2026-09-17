@@ -490,7 +490,128 @@ MIT
 
 ## Autoría
 
-<p align="center"> <strong>Proyecto desarrollado por</strong> </p> <table align="center"> <tr> <td align="center" width="50%"> <h3>Sandra Marcela Cardona Giraldo</h3> <p>Investigación · Desarrollo de software</p> <a href="https://www.linkedin.com/in/USUARIO_AUTOR_1/" target="_blank"> <img src="https://img.shields.io/badge/LinkedIn-Perfil%20profesional-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Sandra Marcela Cardona Giraldo" /> </a> </td> <td align="center" width="50%"> <h3>Leon, E.</h3> <p>Investigación · Desarrollo de software</p> <a href="https://www.linkedin.com/in/mbaleon/" target="_blank"> <img src="https://img.shields.io/badge/LinkedIn-Perfil%20profesional-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Leon, E." /> </a> </td> </tr> </table> <br>
+<p align="center"> <strong>Proyecto desarrollado por</strong> </p> <table align="center"> <tr> <td align="center" width="50%"> <h3>Sandra Marcela Cardona Giraldo</h3> <p>Investigación · Desarrollo de software</p> <a href="www.linkedin.com/in/sandramilenacardona
+Otros perfiles vistos por tus visitantes
+
+Solo para ti
+
+Gestor de proyectos en Profesional Independiente
+Ver
+
+Profesor universitario en Universidad de La Salle
+Ver
+
+Comprador en Somos Super
+Ver
+
+Alguien en Pontificia Universidad Javeriana
+Ver
+Gente que podrías conocer
+
+De tu institución educativa
+
+Wilson Sánchez
+
+· 3er
+
+Talento Humano
+Conectar
+
+Víctor L. Rojas 
+
+· 3er
+
+Performance Marketing Specialist | Expansión Comercial & Optimización de Canales de Venta | Estrategias basadas en datos | IA aplicada a marketing
+Conectar
+
+Juan Diego Gómez Vargas
+
+• 2º
+
+Gerente cooperativa de los trabajadores colombianos
+Conectar
+
+Clara Milena Ramirez 
+
+• 2º
+
+Profesional de Recursos Humanos en AGP sGlass
+Conectar
+
+Wendy Cañon
+
+• 2º
+
+| Profesional Laboratorio de Psicología | Entorno y Procesos Académicos | Organización de Recursos | Pruebas Psicometricas| Análisis de Datos|
+Conectar
+Mostrar todo
+Podría gustarte
+
+Páginas para ti
+
+Banco Mundo Mujer
+
+Banca
+
+79.367 seguidores
+
+Luisa Fernanda y 46 antiguos alumnos más trabajan aquí
+Seguir
+
+ACH Colombia Oficial
+
+Banca
+
+30.180 seguidores
+
+wendy y 7 antiguos alumnos más trabajan aquí
+Seguir
+Mostrar todo
+
+Acerca de
+
+Accesibilidad
+
+Talent Solutions
+
+Pautas comunitarias
+
+Empleo
+
+Marketing Solutions 
+
+Privacidad y condiciones
+
+Opciones de publicidad
+
+Publicidad
+
+Sales Solutions
+
+Móvil
+
+Pequeñas empresas
+
+Centro de seguridad
+
+LinkedIn Corporation © 2026
+
+¿Tienes preguntas?
+
+Visita nuestro Centro de ayuda.
+
+Gestiona tu cuenta y la privacidad
+
+Accede a tu Configuración.
+
+Transparencia de las recomendaciones
+
+Más información sobre el contenido recomendado.
+
+Seleccionar idioma
+Sandra Milena Cardona Giraldo
+Estado: con conexión
+Mensajes " target="_blank"> <img src="https://img.shields.io/badge/LinkedIn-Perfil%20profesional-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Sandra Marcela Cardona Giraldo" /> </a> </td> <td align="center" width="50%"> <h3>Leon, E.</h3> <p>Investigación · Desarrollo de software</p> <a href="https://www.linkedin.com/in/mbaleon/" target="_blank"> <img src="https://img.shields.io/badge/LinkedIn-Perfil%20profesional-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Leon, E." /> </a> </td> </tr> </table> <br>
 
 <p align="center">
   <em>
