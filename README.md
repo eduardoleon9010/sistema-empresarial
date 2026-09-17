@@ -340,9 +340,6 @@ La versión demostrativa de la aplicación se encuentra disponible en:
   </a>
 </p>
 
-**Demostración:**
-https://sistema-empresarial-v1.onrender.com/
-
 La aplicación permite observar la integración de los módulos de Finanzas, Contabilidad, Nómina y Tesorería. La disponibilidad del prototipo facilita la inspección del artefacto y la reproducción de los escenarios básicos de aceptación.
 
 ## Alcance de la V1
